@@ -77,4 +77,4 @@ TrackingManager.stopTracking();
 ```
 
 ## Demo project
-https://github.com/cellrebel/CellRebelSDK/tree/master/demo
+https://github.com/cellrebel/CellRebelSDK-debug/tree/master/demo
