@@ -18,7 +18,7 @@ Then, add the library dependency to module `build.gradle`:
 ```gradle
 dependencies {
     ...
-    implementation 'com.cellrebel.android:cellrebel-sdk:1.3.4'
+    implementation 'com.cellrebel.android:cellrebel-sdk:1.3.5'
 }
 ```
 
@@ -51,7 +51,7 @@ CellRebel SDK requires InitProvider to be added to the application `manifest`:
 </manifest>
 ```
 
-Initialize SDK using your unique CLIENT_KEY string on application create:
+Initialize SDK using application context and your unique CLIENT_KEY string on application create:
 ```java
 import com.cellrebel.sdk.workers.TrackingManager;
 
@@ -61,12 +61,12 @@ public class App extends MultiDexApplication implements LifecycleObserver {
 	public void onCreate() {
 		super.onCreate();
 
-		TrackingManager.init(this);
+		TrackingManager.init(this, "CLIENT_KEY");
 	}
 }
 ```
 
-Use `startTracking` to start:
+Use `startTracking` with context to start:
 ```java
 TrackingManager.startTracking(this);
 ```

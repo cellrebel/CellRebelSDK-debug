@@ -11,6 +11,6 @@ public class App extends MultiDexApplication implements LifecycleObserver {
 	public void onCreate() {
 		super.onCreate();
 
-		TrackingManager.init(this);
+		TrackingManager.init(this, "udhf563r8k");
 	}
 }
