@@ -16,7 +16,7 @@ node {
         ])
     }
     
-        stage('Publish App to Artifactory') {
+        stage('Build & Publish App to Artifactory') {
             
         rtGradleResolver(
             id: 'cellrebel-gradle-resolver',
