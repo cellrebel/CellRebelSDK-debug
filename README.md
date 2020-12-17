@@ -18,7 +18,7 @@ Then, add the library dependency to module `build.gradle`:
 ```gradle
 dependencies {
     ...
-    implementation 'com.cellrebel.android:cellrebel-sdk:1.4.5'
+    implementation 'com.cellrebel.android:cellrebel-sdk:1.5.8'
 }
 ```
 
@@ -51,30 +51,29 @@ CellRebel SDK requires InitProvider to be added to the application `manifest`:
 </manifest>
 ```
 
-Initialize SDK using application context and your unique CLIENT_KEY string on application create:
+Initialize SDK using your unique CLIENT_KEY string on application create:
 ```java
 import com.cellrebel.sdk.workers.TrackingManager;
 
 public class App extends MultiDexApplication implements LifecycleObserver {
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-		TrackingManager.init(this, "CLIENT_KEY");
-	}
+        TrackingManager.init(this, "CLIENT_KEY");
+    }
 }
 ```
 
-Use `startTracking` with context to start:
+Use `startTracking` to start measurement. On the first launch it's best to call this method after user response on location permission dialog. During the next sessions this method should be called on main activity onCreate lifecycle callback:
 ```java
 TrackingManager.startTracking(this);
 ```
-
-Use `stopTracking` if you need to manually stop measurement (for example when performing high load tasks):
+In some (rare) cases, if very high load tasks need to be performed, `stopTracking` can be used to abort an ongoing measurement sequence:
 ```java
 TrackingManager.stopTracking();
 ```
 
 ## Demo project
-https://github.com/cellrebel/CellRebelSDK-debug/tree/master/demo
+https://github.com/cellrebel/CellRebelSDK/tree/master/demo
